@@ -38,7 +38,7 @@
     <section class="container" id="body">
         <div data-ng-view=""></div>
     </section>
-
+    <div id="map-canvas"></div>
     <hr />
 
     <footer class="container">
@@ -55,7 +55,59 @@
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.9.0/ui-bootstrap-tpls.min.js"></script>-->
 <script type="text/javascript" src="public/components/toastr/toastr.min.js"></script>
 <script type="text/javascript" src="public/components/angular-loading-bar/build/loading-bar.min.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
 <script type="text/javascript" src="public/js/app.js"></script>
 <script type="text/javascript" src="public/js/controllers/placesExplorerController.js"></script>
+<script type="text/javascript">
+    var map;
+    function initialize() {
+        var mapOptions = {
+            zoom: 16
+        };
+        map = new google.maps.Map(document.getElementById('map-canvas'),
+                mapOptions);
+
+        if(navigator.geolocation) {
+            debugger;
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var pos = new google.maps.LatLng(position.coords.latitude,
+                        position.coords.longitude);
+
+                var infowindow = new google.maps.InfoWindow({
+                    map: map,
+                    position: pos,
+                    content: 'You are here.'
+                });
+
+                map.setCenter(pos);
+            }, function() {
+                handleNoGeolocation(true);
+            });
+        } else {
+            // Browser doesn't support Geolocation
+            handleNoGeolocation(false);
+        }
+    }
+
+    function handleNoGeolocation(errorFlag) {
+        if (errorFlag) {
+            var content = 'Error: The Geolocation service failed.';
+        } else {
+            var content = 'Error: Your browser doesn\'t support geolocation.';
+        }
+
+        var options = {
+            map: map,
+            position: new google.maps.LatLng(60, 105),
+            content: content
+        };
+
+        var infowindow = new google.maps.InfoWindow(options);
+        map.setCenter(options.position);
+    }
+
+    initialize();
+</script>
+
 </body>
 </html>
