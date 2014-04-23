@@ -1,0 +1,26 @@
+{
+    "name": "foursquare-app",
+    "version": "0.0.1",
+    "description": "foursquare-app\r ==============",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/guillermocorrea/foursquare-app.git"
+    },
+    "author": "Guillermo Correa",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/guillermocorrea/foursquare-app/issues"
+    },
+    "homepage": "https://github.com/guillermocorrea/foursquare-app",
+    "devDependencies": {
+        "grunt": "0.4.1",
+        "grunt-contrib-concat": "0.1.3",
+        "grunt-contrib-cssmin" : "0.6.1",
+        "grunt-contrib-watch" : "0.5.3",
+        "grunt-contrib-uglify" : "0.2.0"
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "name": "foursquare-app",
+    "version": "0.0.1",
+    "homepage": "https://github.com/guillermocorrea/foursquare-app",
+    "authors": [
+        "Guillermo Correa <luis.guillermo.correa@hotmail.com>"
+    ],
+    "description": "AngularJS Foursquare app",
+    "license": "MIT",
+    "private": true,
+    "dependencies": {
+        "bootstrap": "*",
+        "angular": "*",
+        "angular-route": "*",
+        "angular-resource": "*",
+        "angular-animate": "*",
+        "angular-loading-bar": "*",
+        "toastr": "*",
+        "font-awesome": "*"
+    },
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ]
+}
